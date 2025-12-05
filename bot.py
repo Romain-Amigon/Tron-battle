@@ -29,7 +29,7 @@ while not game.is_end():
     
 
     for i in range(n):
-        x0, y0, x1, y1 = game.getData(p)
+        x0, y0, x1, y1 = game.getData(i)
 
 
     game.step(MOVES[rd.randint(0,3)],p)
