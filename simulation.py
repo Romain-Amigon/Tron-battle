@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec  5 01:13:54 2025
+
+@author: Romain
+"""
+
+
 import sys
 import math
 from collections import deque
@@ -70,10 +78,10 @@ class Game:
 
         nx,ny=x+xm,y+ym
 
-        if 0<=nx<WIDTH and 0<=ny<HEIGHT and self.grid[ny][nx]!=-1:
+        if 0<=nx<WIDTH and 0<=ny<HEIGHT and self.grid[ny][nx]>=0:
             player.x=nx
             player.y=ny
-            self.grid[ny][nx]=-1-player.id
+            self.grid[ny][nx]=-1-idx
             player.parcours.append((nx,ny))
    
         else:
@@ -81,9 +89,14 @@ class Game:
             for x,y in player.parcours:
                 self.grid[y][x]=0
         
-        self.draw()
+        #self.draw()
     
     def is_end(self):
         s=sum(p.alive for p in self.players)
         if s<2: return True
         return False
+
+
+            
+            
+            
